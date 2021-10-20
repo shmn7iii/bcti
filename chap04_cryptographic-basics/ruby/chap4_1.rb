@@ -1,3 +1,5 @@
+# フロイドの循環検出法
+
 require 'digest'
 
 
