@@ -4,7 +4,7 @@ import hashlib
 
 
 def sha40(x: str):
-    return hashlib.sha256(x.encode('utf-8')).hexdigest()[0:10]      # rubyとはスライスのしようが違うので注意
+    return hashlib.sha256(x.encode('utf-8')).hexdigest()[0:10]      # rubyとはスライスの仕様が違うので注意
 
 
 def rho(h0):
