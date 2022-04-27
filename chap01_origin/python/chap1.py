@@ -5,6 +5,7 @@ import hashlib
 print("")
 print("===== chap1_1 ====")
 
+
 def get_hash_sha256(str):
     # encode
     str = str.encode('UTF-8')
@@ -12,9 +13,9 @@ def get_hash_sha256(str):
     hash = hashlib.sha256(str).hexdigest()
     return hash
 
+
 print("12345: " + get_hash_sha256("12345"))
 print("12346: " + get_hash_sha256("12346"))
-
 
 
 # chap1_2
@@ -23,6 +24,7 @@ print("===== chap1_2 ====")
 
 IV = "0000"
 data_list = ["0001", "0002", "0003", "0004"]
+
 
 def hashchain(_data_list, _prevhash):
     chained_list = []
@@ -34,6 +36,7 @@ def hashchain(_data_list, _prevhash):
 
     return chained_list
 
+
 blockchain = hashchain(data_list, IV)
 print(f"Blockchain: {blockchain}")
 
@@ -41,10 +44,10 @@ lasthash = hashlib.sha256(blockchain[-1].encode('utf-8')).hexdigest()
 print(f"LastHash: {lasthash}")
 
 
-
 # chap1_3
 print("")
 print("===== chap1_3 ====")
+
 
 def verifyhashchain(_hashchain, _prevhash, _lasthash):
     for block in _hashchain:
@@ -59,16 +62,18 @@ def verifyhashchain(_hashchain, _prevhash, _lasthash):
     else:
         return False
 
-print(verifyhashchain(blockchain, IV, lasthash))
 
+print(verifyhashchain(blockchain, IV, lasthash))
 
 
 # chap1_4
 print("")
 print("===== chap1_4 ====")
 
+
 import random
 import time
+
 
 def hashcash(target):
     hash = 0
@@ -81,10 +86,12 @@ def hashcash(target):
             break
     return [pow, hash]
 
+
 def hashcashTime(target):
     t0 = time.time()
     hashcash(target)
     return time.time() - t0
+
 
 print(f"2**240: {hashcashTime(2**240)}")
 print(f"2**239: {hashcashTime(2**239)}")
